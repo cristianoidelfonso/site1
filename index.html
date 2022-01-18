@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scroll Fixo com jQuery</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="form.css">
+    <style>
+        .teste{
+            position: fixed;
+            top: 0;
+            display: flex;
+            width: 100%;
+            height: 5vh;
+            background-color: red;
+            z-index: 1009;
+            align-items: center;
+            justify-content: center;
+            align-content: space-between;
+            opacity: 0;
+            transition: all .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="">
+        <div id="logo">
+            <h1>Ideltech Soluções</h1>
+        </div>
+    </header>
+    <div class="teste">
+        <span>Logo</span>
+        <span>Teste</span>
+    </div>
+    <nav id="menuHeader" class="nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#lojas">Lojas</a></li>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <form action="#" method="get" accept-charset="utf-8">
+            <input type="text" name="search">
+            <button type="submit">Pesquisar</button>
+        </form>
+    </nav>
+    <div id="main">
+        <div class="container">
+            <div class="content">
+                <section id="home">
+                    <div class="home formFront">
+                        <h1>Home</h1>
+                    </div>
+                </section>
+                <section id="produtos">
+                    <div class="produtos formFront">
+                        <h1>Produtos</h1>
+                    </div>
+                </section>
+                <section id="lojas">
+                    <div class="lojas formFront">
+                        <h1>Lojas</h1>
+                    </div>
+                </section>
+                <section id="empresa">
+                    <div class="empresa formFront">
+                        <h1>Empresa</h1>
+                    </div>
+                </section>
+                <section id="blog">
+                    <div class="empresa formFront">
+                        <h1>Blog</h1>
+                    </div>
+                </section>
+
+                <section id="contato">
+                    <div class="formFront">
+                        <h2>CONTACT ME</h2>
+                        <input type="button" value="Click for Contact Form" class="clickable" onclick="flip()" />
+                        <h4>Or email</h4>
+                        <h5><a href="mailto:mississippimudgal@gmail.com">mississippimudgal@gmail.com</a></h5>
+                        <h4>Or Call</h4>
+                        <h5><a href="tel:3145505447">(314) 550-5447</a></h5>
+                    </div>
+                    <div class="formBack">
+                        <input type="text" name="name" id="name" placeholder="Nome">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <textarea name="content" id="" cols="30" rows="10"></textarea>
+                        
+                        <input type="button" value="Click for Contact Form" class="clickable" onclick="flip()" />
+                        [contact-form-7 id="148" title="Contact form 1"]
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="sidebar">
+                <div class="widget">
+                    <h3>Title</h3>
+                    <div class="inner-widget">
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h3>Title 2</h3>
+                    <div class="inner-widget">
+                        <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                            <li><a href="#">Link 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+
+    $(function () {
+        let nav = $('#menuHeader');
+        let teste = $('.teste');
+
+        console.log($(this).scrollTop() , $('#header').innerHeight());
+        
+        $(window).scroll(function () {
+            // if ($(this).scrollTop() > $('#header').innerHeight()) {
+            if ($(this).scrollTop() > 99) {
+                nav.addClass("menu-fixo");
+                $('body').css('padding-top', 70);
+                
+                teste.css({'opacity':'1'});
+                
+            } else {
+                nav.removeClass("menu-fixo");
+                $('body').css('padding-top', 0);
+
+                teste.css({'opacity':'0'});
+
+            }
+        });
+    });
+
+    function flip() {
+        document.getElementById("contato").classList.toggle("flip");
+    };
+
+</script>
+<script src="./scroll-suave.js"></script>
+
+</html>

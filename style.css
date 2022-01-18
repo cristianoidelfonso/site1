@@ -1,0 +1,62 @@
+/* RESET CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block;}
+body { line-height: 1;}
+ol, ul { list-style: none;}
+blockquote, q { quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none;}
+table { border-collapse: collapse; border-spacing: 0;}
+
+/* FIM RESET CSS */
+
+body { position: relative; font-family: Open Sans;  }
+p { margin-bottom: 15px; }
+#header { display: flex; align-items: center; justify-content: center; padding: 50px; }
+#header h1 { color: gray; font-size: 2rem; font-weight: 600; font-family: sans-serif;}
+#menuHeader { display: flex; align-items: center; justify-content: space-between; background: #52416e; width: 100%; transition: all .5s; }
+#menuHeader ul { display: flex; padding: 0 30px; list-style: none; }
+#menuHeader ul li { transition: all .5s; }
+#menuHeader ul li.active { background: #a3b846; }
+#menuHeader ul li a.active { background: #a3b846; }
+#menuHeader ul li:hover { background: #a3b846; transition: all .5s; }
+#menuHeader ul li a { display: inline-block; color: #fff; text-decoration: none; padding: 30px 20px; transition: all .5s; }
+#menuHeader form { display: flex; align-items: center; padding: 0 30px; }
+#menuHeader form input { padding: 10px; border: 0; }
+#menuHeader form button { background: #a3b846; color: #fff; font-size: 15px; border: 0; padding: 8px 15px; cursor: pointer; transition: all .5s; }
+#menuHeader form button:hover { background: #0c5651; transition: all .5s; }
+.menu-fixo { 
+    position: fixed; 
+    top: 5vh; 
+    z-index: 99; 
+    transition: all .5s; 
+}
+.menu-fixo a { padding: 20px 20px !important; transition: all .5s; }
+
+#main { height: 800px; background: #ffffff; }
+#main .container { padding: 30px; display: flex; }
+#main .container .content { flex: 1; width: 75%; min-height: 300px; background: #fff; padding: 25px; margin-right: 15px; }
+#main .container .content h2 { font-size: 35px; font-weight: bold; }
+#main .container .sidebar { min-width: 300px; background: #fff; }
+#main .container .sidebar .widget { padding: 25px; border-bottom: 15px solid #ccc;   }
+#main .container .sidebar .widget h3 { font-size: 20px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; padding: 10px 0; border-bottom: 1px solid #f6f6f6; }
+
+#home, #produtos, #lojas, #empresa, #blog, #contato{
+    height: 70vh;
+    margin-bottom: 10vh;
+}
