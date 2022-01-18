@@ -21,21 +21,29 @@
             justify-content: center;
             align-content: space-between;
             opacity: 0;
+
             transition: all .5s;
+
+            transform-origin: bottom;
+            transform: scaleY(0);
+            transition: transform .5s ease;
         }
     </style>
 </head>
 
 <body>
+
+    <div class="teste">
+        <span>Logo</span>
+        <span>Teste</span>
+    </div>
+    
     <header id="header" class="">
         <div id="logo">
             <h1>Ideltech Soluções</h1>
         </div>
     </header>
-    <div class="teste">
-        <span>Logo</span>
-        <span>Teste</span>
-    </div>
+    
     <nav id="menuHeader" class="nav">
         <ul>
             <li><a href="#home">Home</a></li>
@@ -143,13 +151,13 @@
                 nav.addClass("menu-fixo");
                 $('body').css('padding-top', 70);
                 
-                teste.css({'opacity':'1'});
+                teste.css({'opacity':'1', 'transform': 'scaleY(1)', 'transform-origin': 'top'});
                 
             } else {
                 nav.removeClass("menu-fixo");
                 $('body').css('padding-top', 0);
 
-                teste.css({'opacity':'0'});
+                teste.css({'opacity':'0', 'transform': 'scaleY(0)', 'transform-origin': 'bottom' });
 
             }
         });
