@@ -10,23 +10,18 @@
     <link rel="stylesheet" href="form.css">
     <style>
         .teste{
-            position: fixed;
-            top: 0;
-            display: flex;
-            width: 100%;
-            height: 5vh;
-            background-color: red;
-            z-index: 1009;
-            align-items: center;
-            justify-content: center;
-            align-content: space-between;
-            opacity: 0;
-
-            transition: all .5s;
-
-            transform-origin: bottom;
-            transform: scaleY(0);
-            transition: transform .5s ease;
+          position: fixed;
+          top: 0;
+          display: flex;
+          width: 100%;
+          height: 0;
+          background-color: #222;
+          color: #fff;
+          z-index: 1009;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          opacity: 1;
         }
     </style>
 </head>
@@ -135,32 +130,26 @@
         </div>
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script>
 
-    $(function () {
-        let nav = $('#menuHeader');
-        let teste = $('.teste');
+    function animateScroll(){
+     
+      if ($(document).scrollTop() > $('#header').innerHeight()) {
+        $('#menuHeader').addClass("menu-fixo").stop().animate({ top: "10vh" }, 500);
+        $('body').css('padding-top', 70);
+        $('.teste').stop().animate({ height: "10vh", }, 500);
+      } else {
+        $('#menuHeader').removeClass("menu-fixo").stop().animate({top: 0}, 500);
+        $('body').css('padding-top', 0);
+        $('.teste').stop().animate({ height: 0 }, 500);
+      }
+    }
 
-        console.log($(this).scrollTop() , $('#header').innerHeight());
-        
-        $(window).scroll(function () {
-            // if ($(this).scrollTop() > $('#header').innerHeight()) {
-            if ($(this).scrollTop() > 99) {
-                nav.addClass("menu-fixo");
-                $('body').css('padding-top', 70);
-                
-                teste.css({'opacity':'1', 'transform': 'scaleY(1)', 'transform-origin': 'top'});
-                
-            } else {
-                nav.removeClass("menu-fixo");
-                $('body').css('padding-top', 0);
+    animateScroll();
 
-                teste.css({'opacity':'0', 'transform': 'scaleY(0)', 'transform-origin': 'bottom' });
-
-            }
-        });
+    $(document).scroll(function () {
+        animateScroll();
     });
 
     function flip() {
